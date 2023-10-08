@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    background-image: linear-gradient(to right bottom, #f6f6f6, 70%, #3f87a6);
+    background-attachment: fixed;
+}
+
+button {
+    color: black;
+    background-color: white;
+    border: 2px solid grey;
+    border-radius: 3px;
+    font-size: large;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    cursor: pointer;
+}
+
+button:active {
+    border-color: black;
+}
+
+input {
+    color: black;
+    background-color: white;
+    border: 2px solid grey;
+    border-radius: 3px;
+    font-size: large;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    cursor: text;
+}
+
+select {
+    color: black;
+    background-color: white;
+
+    border: 2px solid grey;
+    border-radius: 3px;
+    font-size: large;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    cursor: pointer;
+}
+
+.m-form-field {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+    width: 50%;
+}
+
+.dialog-buttons {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: stretch;
+    gap: 10px;
+}
+
+@font-face {
+    font-family: 'pixelify';
+    src: url("./PixelifySans-Bold.ttf") format('truetype');
+}
