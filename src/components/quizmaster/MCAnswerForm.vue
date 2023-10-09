@@ -20,7 +20,7 @@ export default {
   props: ["modelValue"],
   created() {
     if (!("mc_options" in this.modelValue)) {
-      this.$set(this.modelValue, "mc_options", []);
+      this.modelValue["mc_options"] = [];
     }
   },
   methods: {

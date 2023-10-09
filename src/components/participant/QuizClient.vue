@@ -26,9 +26,9 @@
 import DotsHorizontalIcon from "vue-material-design-icons/DotsHorizontal.vue";
 import Check from "vue-material-design-icons/Check.vue";
 import { ProxyAsset, AssetWatcher } from "assets2036js";
-import TextAnswerInput from "./TextAnswerInput";
-import NumberAnswerInput from "./NumberAnswerInput";
-import MCAnswerInput from "./MCAnswerInput";
+import TextAnswerInput from "./TextAnswerInput.vue";
+import NumberAnswerInput from "./NumberAnswerInput.vue";
+import MCAnswerInput from "./MCAnswerInput.vue";
 export default {
   components: {
     TextAnswerInput,
@@ -53,8 +53,8 @@ export default {
     };
   },
   async mounted() {
-    this.watcher = new AssetWatcher(process.env.VUE_APP_BROKER_URL,
-      parseInt(process.env.VUE_APP_BROKER_PORT), true);
+    this.watcher = new AssetWatcher(import.meta.env.VITE_BROKER_URL,
+      parseInt(import.meta.env.VITE_BROKER_PORT), true);
     await this.watcher.connect();
     console.log("watcher connected");
     this.watcher.onAssetOnline("quizzy", this.quizId, this.connectToAsset)
@@ -66,8 +66,8 @@ export default {
     async connectToAsset(assetOnline) {
       console.log("quiz is online: ", assetOnline);
       this.asset = new ProxyAsset(
-        process.env.VUE_APP_BROKER_URL,
-        parseInt(process.env.VUE_APP_BROKER_PORT),
+        import.meta.env.VITE_BROKER_URL,
+        parseInt(import.meta.env.VITE_BROKER_PORT),
         "quizzy",
         this.quizId, true
       );

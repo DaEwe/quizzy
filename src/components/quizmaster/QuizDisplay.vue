@@ -47,15 +47,16 @@ export default {
     },
   },
   async mounted() {
+    console.log(import.meta.env);
     this.asset = new Asset(
-      process.env.VUE_APP_BROKER_URL,
-      parseInt(process.env.VUE_APP_BROKER_PORT),
+      import.meta.env.VITE_BROKER_URL,
+      parseInt(import.meta.env.VITE_BROKER_PORT),
       "quizzy",
       this.quizId.toString(), true
     );
 
     await this.asset.connect();
-    await this.asset.registerAspect(process.env.VUE_APP_QUIZ_SM_URL);
+    await this.asset.registerAspect(import.meta.env.VITE_QUIZ_SM_URL);
 
     this.asset.quiz.bind_giveAnswer((params) => {
       console.log("got ", params);

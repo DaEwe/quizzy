@@ -17,7 +17,8 @@
 <script>
 import QuizDisplay from "./quizmaster/QuizDisplay.vue";
 import QuestionSetup from "./quizmaster/QuestionSetup.vue";
-import QRCode from "../../node_modules/qrcode/lib/browser.js";
+import QRCode from 'qrcode';
+
 
 
 

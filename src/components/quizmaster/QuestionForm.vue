@@ -2,8 +2,8 @@
   <div class="question-container">
     <div @input="$emit('update:modelValue', modelValue)">
       <div>
-        <label for="question">Question</label>
-        <input type="text" v-model="modelValue.question" id="question" />
+        <label :for="modelValue.question_id + '_input'">Question</label>
+        <input type="text" v-model="modelValue.question" :id="modelValue.question_id + '_input'" />
       </div>
     </div>
     <div>

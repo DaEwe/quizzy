@@ -18,7 +18,7 @@ export default {
   props: ["modelValue"],
   created() {
     if (!("number_limits" in this.modelValue)) {
-      this.$set(this.modelValue, "number_limits", [0, 100]);
+     this.modelValue["number_limits"] = [0, 100];
     }
   },
 };
