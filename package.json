@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "assets2036js": "github:boschresearch/assets2036js",
+    "github-fork-ribbon-css": "^0.2.3",
     "qrcode": "^1.5.3",
     "uuid": "^9.0.1",
     "vue": "^3.3.4",
