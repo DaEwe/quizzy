@@ -9,7 +9,8 @@
       </div>
     </div>
     <div class="column">
-      <QuestionSetup v-if="typeof questions === 'undefined'" @setupcomplete="questions = $event" />
+      <QuestionSetup v-if="typeof questions === 'undefined'" @setupcomplete="questions = $event"
+        @quizidchanged="quizId = $event" />
       <QuizDisplay v-else :questions="questions" :quizId="quizId" @quizended="$emit('quizended')" />
     </div>
   </div>
@@ -18,6 +19,7 @@
 import QuizDisplay from "./quizmaster/QuizDisplay.vue";
 import QuestionSetup from "./quizmaster/QuestionSetup.vue";
 import QRCode from 'qrcode';
+import { getTransitionRawChildren } from "vue";
 
 
 
@@ -33,22 +35,27 @@ export default {
       quizId: Math.floor(Math.random() * 10000),
       questions: undefined,
       dataURL: undefined
+
     };
   },
   computed: {
     quizUrl() {
-      return window.location.href + "?quizid=" + this.quizId;
-    },
+      const url = window.location.href + "?quizid=" + this.quizId;
+      this.setDataURL(url);
+      return url
+    }
 
   },
-  async mounted() {
-    this.dataURL = await QRCode.toDataURL(this.quizUrl, {
-      width: 300,
-      color: {
-        dark: "000",
-        light: "FFF0"
-      }
-    });
+  methods: {
+    async setDataURL(url) {
+      this.dataURL = await QRCode.toDataURL(url, {
+        width: 300,
+        color: {
+          dark: "000",
+          light: "FFF0"
+        }
+      });
+    }
   }
 };
 </script>

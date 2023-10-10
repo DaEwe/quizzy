@@ -16,10 +16,15 @@
       </button>
     </div>
     <div class="dialog-buttons">
+      <button @click="showDialog"> Change Quiz ID</button>
       <button @click="setupcomplete">
         Start the Quiz!
       </button>
     </div>
+    <dialog id="quiz-id-dialog">
+      <input type="text" @input="$emit('quizidchanged', $event.target.value)">
+      <button @click="closeDialog">Ok</button>
+    </dialog>
   </div>
 </template>
 <script>
@@ -37,6 +42,10 @@ export default {
   },
   mounted() { },
   methods: {
+    showDialog() { document.getElementById('quiz-id-dialog').show() },
+    closeDialog() {
+      document.getElementById('quiz-id-dialog').close()
+    },
     add() {
       this.questions.push({
         question_id: uuidv4(),
